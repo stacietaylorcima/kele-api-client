@@ -20,4 +20,13 @@ class Kele
   def api_url(endpoint)
     "https://www.bloc.io/api/v1/#{endpoint}"
   end
+
+  # Retrieve's the current user as a JSON blob by passing auth_token to the request to property authenticate against the Bloc API.
+  # Params: auth_token = string
+  def get_me
+    # Use the httparty class method .get to pass the auth_token to Bloc's API with httparty's header option.
+    response = self.class.get(api_url('users/me'), headers: { "authorization" => @auth_token })
+    # Parse the JSON document returned in the response into a Ruby hash
+    @user_data = JSON.parse(response.body)
+  end
 end
