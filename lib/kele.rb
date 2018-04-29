@@ -1,8 +1,10 @@
 require 'httparty'
 require 'json'
+require './lib/roadmap'
 
 class Kele
   include HTTParty
+  include Roadmap
 
   # Creates a new Kele client authorized with a email and password
   # Params: email = string, password = string
