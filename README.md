@@ -3,21 +3,6 @@ Kele is a Ruby Gem API client to access the Bloc API.
 
 [Bloc's API Documentation](https://blocapi.docs.apiary.io/#)
 
-## Installation
-Add this line to your application's Gemfile:
-```
-gem 'kele'
-```
-
-And then execute:
-```
-$ bundle
-```
-Or install it yourself as:
-```
-$ gem install kele
-```
-
 ## Usage
 The client can be used as follows, (Populated with your Bloc.io email and password to access the API.):
 ```
