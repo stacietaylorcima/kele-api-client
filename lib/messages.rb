@@ -2,7 +2,7 @@ module Messages
   # Retrieves the current user's message threads.
   # Params: page_number = number(optional) If no page is specified via the parameter, the first page of messages will be displayed.
   def get_messages(page_number = 1)
-    # Point the HTTParty GET method at the messages endpoint of Bloc's API.
+    # Point the HTTParty GET method at the message_threads endpoint of Bloc's API.
     # Use HTTParty's header option to pass the auth_token.
     # Use HTTParty's body option to pass the page_number
     response = self.class.get(api_url("message_threads"), headers: { "authorization" => @auth_token },
@@ -17,6 +17,9 @@ module Messages
   # Creates a new message and sends a request to Bloc's API via the HTTParty POST method
   # Params: sender = the sender's email, string | recipient_id = the recipient's id, number | token = the message thread token, string | subject = the message subject, string | text = the message body, string
   def create_message(sender, recipient_id, token, subject, text)
+    # Point the HTTParty POST method at the messages endpoint of Bloc's API.
+    # Use HTTParty's header option to pass the auth_token.
+    # Use HTTParty's body option to pass all of the required parameters
     response = self.class.post(api_url("messages"), headers: { "authorization" => @auth_token },
     body: {
       "sender" => sender,
